@@ -1,0 +1,49 @@
+     1                                  bits 32
+     2                                  global read_number, third_digit
+     3                                  
+     4                                  extern printf, scanf
+     5                                  
+     6                                  import printf msvcrt.dll
+     7                                  import scanf msvcrt.dll
+     8                                  
+     9                                  segment data public data use32
+    10 00000000 496E70757420796F75-         text_message db "Input your string of numbers:", 0
+    10 00000009 7220737472696E6720-
+    10 00000012 6F66206E756D626572-
+    10 0000001B 733A00             
+    11 0000001E 257500                      format  db "%u", 0
+    12 00000021 00000000                    number dd 0
+    13                                      
+    14                                  segment code public code use32
+    15                                  read_number:
+    16 00000000 68[00000000]                    push dword text_message
+    17 00000005 FF15[00000000]                  call [printf]
+    18 0000000B 83C404                          add esp, 4*1
+    19                                          
+    20 0000000E 68[21000000]                    push dword number
+    21 00000013 68[1E000000]                    push dword format
+    22 00000018 FF15[00000000]                  call [scanf]
+    23 0000001E 83C408                          add esp, 4*2
+    24 00000021 A1[21000000]                    mov eax, dword [number]
+    25                                          
+    26 00000026 C3                          ret
+    27                                      
+    28                                  third_digit:
+    29 00000027 55                              push ebp
+    30 00000028 89E5                            mov ebp, esp
+    31                                          
+    32 0000002A 8B442408                        mov eax, [esp+8]
+    33 0000002E B903000000                      mov ecx, dword 3
+    34 00000033 BB0A000000                      mov ebx, dword 10
+    35                                          repeat:
+    36 00000038 BA00000000                          mov edx, 0
+    37 0000003D BA00000000                          mov edx, dword 0
+    38 00000042 F7F3                                div ebx
+    39 00000044 E2F2                            loop repeat
+    40 00000046 89D0                            mov eax, edx
+    41                                          
+    42 00000048 89EC                            mov esp, ebp
+    43 0000004A 5D                              pop ebp
+    44                                  
+    45 0000004B C3                          ret
+    46                                      

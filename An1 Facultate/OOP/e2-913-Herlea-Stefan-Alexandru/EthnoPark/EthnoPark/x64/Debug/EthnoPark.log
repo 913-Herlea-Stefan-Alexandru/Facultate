@@ -1,0 +1,3 @@
+﻿  DrawWindow.cpp
+D:\OOP\e2-913-Herlea-Stefan-Alexandru\EthnoPark\EthnoPark\TableModel.h(140,2): warning C4091: 'static ': ignored on left of 'TableModel' when no variable is declared
+  EthnoPark.vcxproj -> D:\OOP\e2-913-Herlea-Stefan-Alexandru\EthnoPark\x64\Debug\EthnoPark.exe

@@ -1,0 +1,16 @@
+for i <- 0, N-1 execute
+	initEmpty(b[i])
+endfor
+
+while(!empty(s))
+	(k, v) <- first(s)
+	addLast(b[k], (k, v))
+	removeFirst(s)
+endwhile
+
+for i <-0,N-1 execute: 
+	while not empty(B[i]): 
+		(k,v) <- first(B[i]) 
+		addLast(S, (k,v)) 
+		removeFirst(B[i]) 
+endfor 

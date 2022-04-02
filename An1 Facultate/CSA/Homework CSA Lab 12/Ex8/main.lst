@@ -1,0 +1,32 @@
+     1                                  bits 32
+     2                                  global start        
+     3                                  
+     4                                  extern exit, printf
+     5                                  import exit msvcrt.dll
+     6                                  import printf msvcrt.dll
+     7                                  
+     8                                  extern base8conv
+     9                                  
+    10                                  segment data use32 class=data
+    11                                      
+    12 00000000 4E756D626572202564-         format db "Number %d in base 8: %d; in ascii: %s", 0
+    12 00000009 20696E206261736520-
+    12 00000012 383A2025643B20696E-
+    12 0000001B 2061736369693A2025-
+    12 00000024 7300               
+    13                                  
+    14                                  segment code use32 class=code
+    15                                  start:
+    16                                      
+    17 00000000 6A20                        push dword 32
+    18 00000002 E8(00000000)                call base8conv
+    19                                      
+    20 00000007 6A20                        push dword 32
+    21 00000009 50                          push eax
+    22 0000000A 50                          push eax
+    23 0000000B 68[00000000]                push format
+    24 00000010 FF15[00000000]              call [printf]
+    25 00000016 83EC10                      sub esp, 4*4
+    26                                  
+    27 00000019 6A00                        push    dword 0
+    28 0000001B FF15[00000000]              call    [exit]

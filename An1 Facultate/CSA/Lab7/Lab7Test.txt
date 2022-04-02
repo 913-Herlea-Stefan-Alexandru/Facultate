@@ -1,0 +1,73 @@
+ 1)   a db 22h  
+	b db 22h;                                                                    
+    c dw 2h  ;
+    d dw 10h  ; 
+    
+    mov ax, [a]; 
+    mov bx, 4;
+    add bx, ax; 
+    
+    mov ax, [b+1]
+    add ax, [c+1]
+    mov [c], ax
+    What values will be in bx and in c? bx = 2226    c = 26
+    
+    
+2) Considering the variables, witch of the lenght definition is correct (returns the correct length value of the string A and B)
+    
+    a db 1,2,3,4,5;  
+	b db 1,2,3,4,5;                                                                    
+    c dw 1,2,3,4,5 ;
+   
+    lenA1 equ $-a; 20
+    lenA2 equ $-b; 15
+    lenA3  equ $-c; 10
+    lenB1 equ $-b; 15
+    lenB2 equ $-c/2; syntax error
+    lenB3 equ $-b - c;  5  ---
+    
+ 3) what will be the result of the followig instr:
+  mov al, 128
+    cbw
+    mov bl,2
+    div bl
+
+    - al = 40
+    - al = 40d
+    - al = 40,5
+    - execution error   ---
+    - sintax error, cbw should not be used there
+    - al = 40h
+    - al = 0100_0000
+    
+    4.
+    a dw 5
+	b dw 6;                                                                    
+    c dd 112233h
+    
+    
+     mov ax, [a]
+    mov bx, [b]
+    mov ecx, [c]
+    push ecx
+    push ax
+    pop eax ;
+    push bx
+    pop ebx ; 
+        
+    What will be in eax, ebx after running the code?  eax = 22330005h   ebx = 00110006h
+
+5. Which one of the follwing address(es) is/are valid?
+    a) mov eax, [eax*9 + 12]  -> [eax + 8*eax + 12]  correct
+    b) mov eax, [ss:ebx + eax + 3] -> correct
+    c) mov eax, [esi + 2*esp + 1] -> esp can only be a base
+    d) mov eax, [esp + 2*esi + 1] -> correct
+    e) mov eax, [ebx + 3 * eax + 1] -> index can only be 1, 2, 4, 8
+    f) mov eax, [edx + 4 * eax + 2] -> correct
+    g) mov eax, [edx + 9 * eax] -> incorrect
+    f) mov eax, [edx + eax * 9] -> incorrect
+
+6. What is the difference between LEA and MOV  
+7. What is XLAT insruction doing
+  
+        

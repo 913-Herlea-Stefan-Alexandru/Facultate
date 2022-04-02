@@ -1,0 +1,66 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14                                      
+    15 00000000 0104020408020101            s db 1, 4, 2, 4, 8, 2, 1, 1
+    16 00000008 <res 00000008>              d resb 8
+    17 00000010 <res 00000001>              ls resb 1
+    18 00000011 00                          ld db 0
+    19                                  
+    20                                  ; our code starts here
+    21                                  segment code use32 class=code
+    22                                      start:
+    23                                          ; ...
+    24                                          
+    25 00000000 B8[00000000]                    mov eax, s
+    26 00000005 B9[08000000]                    mov ecx, d
+    27 0000000A 29C1                            sub ecx, eax
+    28 0000000C 890D[10000000]                  mov [ls], ecx
+    29 00000012 BB[08000000]                    mov ebx, d
+    30                                          start_loop1:
+    31 00000017 51                                  push ecx
+    32 00000018 B800000000                          mov eax, 0
+    33 0000001D A0[10000000]                        mov al, [ls]
+    34 00000022 29C8                                sub eax, ecx
+    35 00000024 05[00000000]                        add eax, s
+    36 00000029 B900000000                          mov ecx, 0
+    37 0000002E 8A0D[11000000]                      mov cl, [ld]
+    38 00000034 83F900                              cmp ecx, 0
+    39 00000037 7428                                je first_elem
+    40                                                  start_loop2:
+    41 00000039 BA00000000                                  mov edx, 0
+    42 0000003E 8A15[11000000]                              mov dl, [ld]
+    43 00000044 29CA                                        sub edx, ecx
+    44 00000046 81C2[08000000]                              add edx, d
+    45 0000004C 8A12                                        mov dl, byte[edx]
+    46 0000004E 3810                                        cmp byte[eax], dl
+    47 00000050 741C                                        je end_if
+    48 00000052 E2E5                                    loop start_loop2
+    49 00000054 8A00                                    mov al, byte[eax]
+    50 00000056 8803                                    mov byte[ebx], al
+    51 00000058 FE05[11000000]                          inc byte[ld]
+    52 0000005E 43                                      inc ebx
+    53 0000005F EB0D                                    jmp end_if
+    54                                              first_elem:
+    55 00000061 8A00                                    mov al, byte[eax]
+    56 00000063 8803                                    mov byte[ebx], al
+    57 00000065 FE05[11000000]                          inc byte[ld]
+    58 0000006B 43                                      inc ebx
+    59 0000006C EB00                                    jmp end_if
+    60                                              end_if:
+    61 0000006E 59                                  pop ecx
+    62 0000006F E2A6                            loop start_loop1
+    63                                      
+    64                                          ; exit(0)
+    65 00000071 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    66 00000073 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

@@ -1,0 +1,5 @@
+﻿D:\Visual studio\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(519,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (LMDB.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  movie.cpp
+  movieRepoHTML.cpp
+  Generating Code...
+  LMDB.vcxproj -> D:\OOP\a67-913-Herlea-Stefan-Alexandru\LMDB\Debug\LMDB2.exe

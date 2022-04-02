@@ -1,0 +1,9 @@
+﻿  SquareRoot.c
+D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\SquareRoot\SquareRoot.c(22,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\SquareRoot\SquareRoot.c(26,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'double'
+  Generating code
+  1 of 8 functions (12.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SquareRoot.vcxproj -> D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\Release\SquareRoot.exe

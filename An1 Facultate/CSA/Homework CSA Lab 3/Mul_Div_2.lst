@@ -1,0 +1,110 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14                                      
+    15 00000000 32                          a db 50
+    16 00000001 64                          b db 100
+    17 00000002 78                          c db 120
+    18 00000003 19                          d db 25
+    19 00000004 E803                        e dw 1000
+    20 00000006 00902F5009000000            x dq 40000000000
+    21 0000000E <res 00000002>              rw resw 1
+    22 00000010 <res 00000004>              rd resd 1
+    23                                  
+    24                                  ; our code starts here
+    25                                  segment code use32 class=code
+    26                                      start:
+    27                                          ; (a*b-2*c*d)/(c-e)+x/a; a,b,c,d-byte; e-word; x-qword
+    28                                          
+    29                                          ; signed
+    30                                          
+    31 00000000 A0[00000000]                    mov al, byte[a]
+    32 00000005 F62D[01000000]                  imul byte[b] ;ax=a*b
+    33 0000000B 6689C1                          mov cx, ax ;cx=a*b
+    34 0000000E A0[03000000]                    mov al, byte[d]
+    35 00000013 6698                            cbw ;ax=d
+    36 00000015 6689C3                          mov bx, ax ;bx=d
+    37 00000018 B002                            mov al, 2
+    38 0000001A F62D[02000000]                  imul byte[c] ;ax=2*c
+    39 00000020 66F7EB                          imul bx ;dx:ax=2*c*d
+    40 00000023 6689C3                          mov bx, ax 
+    41 00000026 6689C8                          mov ax, cx ;ax=a*b
+    42 00000029 6689D1                          mov cx, dx ;cx:bx=2*c*d
+    43 0000002C 6699                            cwd ;dx:ax=a*b
+    44 0000002E 6629D8                          sub ax, bx
+    45 00000031 6619CA                          sbb dx, cx ;dx:ax=(a*b-2*c*d)
+    46 00000034 6689C3                          mov bx, ax
+    47 00000037 6689D1                          mov cx, dx ;cx:bx=(a*b-2*c*d)
+    48 0000003A A0[02000000]                    mov al, byte[c]
+    49 0000003F 6698                            cbw ;ax=c
+    50 00000041 662B05[04000000]                sub ax, word[e]
+    51 00000048 6689C2                          mov dx, ax ;dx=c-e
+    52 0000004B 6689D8                          mov ax, bx
+    53 0000004E 6689D3                          mov bx, dx ;bx=c-e
+    54 00000051 6689CA                          mov dx, cx ;dx:ax=(a*b-2*c*d)
+    55 00000054 66F7FB                          idiv bx ;ax=(a*b-2*c*d)/(c-e)
+    56 00000057 6689C1                          mov cx, ax ;cx=(a*b-2*c*d)/(c-e)
+    57 0000005A A0[00000000]                    mov al, byte[a]
+    58 0000005F 6698                            cbw
+    59 00000061 98                              cwde ;eax=a
+    60 00000062 89C3                            mov ebx, eax
+    61 00000064 A1[06000000]                    mov eax, dword[x]
+    62 00000069 8B15[0A000000]                  mov edx, dword[x+4] ;edx:eax=x
+    63 0000006F F7FB                            idiv ebx ;eax=x/a
+    64 00000071 89C3                            mov ebx, eax ;ebx=x/a
+    65 00000073 6689C8                          mov ax, cx ;ax=(a*b-2*c*d)/(c-e)
+    66 00000076 98                              cwde ;eax=(a*b-2*c*d)/(c-e)
+    67 00000077 01D8                            add eax, ebx ;eax=(a*b-2*c*d)/(c-e)+x/a
+    68                                          
+    69                                          ; unsigned
+    70                                          
+    71 00000079 A0[00000000]                    mov al, byte[a]
+    72 0000007E F625[01000000]                  mul byte[b] ;ax=a*b
+    73 00000084 6689C1                          mov cx, ax ;cx=a*b
+    74 00000087 A0[03000000]                    mov al, byte[d]
+    75 0000008C B400                            mov ah, 0
+    76 0000008E 6689C3                          mov bx, ax ;bx=d
+    77 00000091 B002                            mov al, 2
+    78 00000093 F625[02000000]                  mul byte[c] ;ax=2*c
+    79 00000099 66F7E3                          mul bx ;dx:ax=2*c*d
+    80 0000009C 6689C3                          mov bx, ax 
+    81 0000009F 6689C8                          mov ax, cx ;ax=a*b
+    82 000000A2 6689D1                          mov cx, dx ;cx:bx=2*c*d
+    83 000000A5 66BA0000                        mov dx, 0
+    84 000000A9 6629D8                          sub ax, bx
+    85 000000AC 6619CA                          sbb dx, cx ;dx:ax=(a*b-2*c*d)
+    86 000000AF 6689C3                          mov bx, ax
+    87 000000B2 6689D1                          mov cx, dx ;cx:bx=(a*b-2*c*d)
+    88 000000B5 A0[02000000]                    mov al, byte[c]
+    89 000000BA B400                            mov ah, 0
+    90 000000BC 662B05[04000000]                sub ax, word[e]
+    91 000000C3 6689C2                          mov dx, ax ;dx=c-e
+    92 000000C6 6689D8                          mov ax, bx
+    93 000000C9 6689D3                          mov bx, dx ;bx=c-e
+    94 000000CC 6689CA                          mov dx, cx ;dx:ax=(a*b-2*c*d)
+    95 000000CF 66F7F3                          div bx ;ax=(a*b-2*c*d)/(c-e)
+    96 000000D2 6689C1                          mov cx, ax ;cx=(a*b-2*c*d)/(c-e)
+    97 000000D5 B800000000                      mov eax, 0
+    98 000000DA A0[00000000]                    mov al, byte[a]
+    99 000000DF 89C3                            mov ebx, eax
+   100 000000E1 A1[06000000]                    mov eax, dword[x]
+   101 000000E6 8B15[0A000000]                  mov edx, dword[x+4] ;edx:eax=x
+   102 000000EC F7F3                            div ebx ;eax=x/a
+   103 000000EE 89C3                            mov ebx, eax ;ebx=x/a
+   104 000000F0 B800000000                      mov eax, 0
+   105 000000F5 6689C8                          mov ax, cx ;ax=(a*b-2*c*d)/(c-e)
+   106 000000F8 01D8                            add eax, ebx ;eax=(a*b-2*c*d)/(c-e)+x/a
+   107                                          
+   108                                          ; exit(0)
+   109 000000FA 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+   110 000000FC FF15[00000000]                  call    [exit]       ; call exit to terminate the program

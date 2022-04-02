@@ -1,0 +1,17 @@
+[2021-04-13 12:21:17] [info] Start Program:
+Path:"D:\\OOP\\a45-913-Herlea-Stefan-Alexandru\\LMDB\\Debug\\LMDB.exe"
+Arguments:
+Working directory: "D:\\OOP\\a45-913-Herlea-Stefan-Alexandru\\LMDB\\LMDB\\"
+Modules: Selected: D:\OOP\a67-913-Herlea-Stefan-Alexandru\LMDB\Debug\LMDB2.exe Excluded: 
+Sources: Selected: D:\OOP\a67-913-Herlea-Stefan-Alexandru\LMDB\LMDB Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: binary C:\Users\Asus\AppData\Local\Temp\ycdhrlir.30q 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+

@@ -1,0 +1,34 @@
+﻿  service.c
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.c(21,22): warning C4013: 'atoi' undefined; assuming extern returning int
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.c(126,7): warning C4013: 'free' undefined; assuming extern returning int
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.c(192,33): warning C4047: '==': 'int' differs in levels of indirection from 'void *'
+  tests.c
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.h(13,39): warning C4031: second formal parameter list longer than the first list
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.h(13,39): warning C4028: formal parameter 1 different from declaration
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.h(13,39): warning C4273: 'remove': inconsistent dll linkage
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(364,26): message : see previous definition of 'remove'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(41,28): warning C4013: 'malloc' undefined; assuming extern returning int
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(53,6): warning C4013: 'free' undefined; assuming extern returning int
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(240,49): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(240,42): warning C4024: 'add': different types for formal and actual parameter 4
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(240,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(240,51): warning C4024: 'add': different types for formal and actual parameter 5
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(248,45): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(248,38): warning C4024: 'add': different types for formal and actual parameter 4
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(248,52): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(248,47): warning C4024: 'add': different types for formal and actual parameter 5
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(260,45): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(260,38): warning C4024: 'add': different types for formal and actual parameter 4
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(260,52): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(260,47): warning C4024: 'add': different types for formal and actual parameter 5
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(238,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char [3]'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\tests.c(238,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char [6]'
+  ui.c
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.h(13,39): warning C4031: second formal parameter list longer than the first list
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.h(13,39): warning C4028: formal parameter 1 different from declaration
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\service.h(13,39): warning C4273: 'remove': inconsistent dll linkage
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(364,26): message : see previous definition of 'remove'
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\ui.c(152,6): warning C4013: 'free' undefined; assuming extern returning int
+D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\RealEstateAgent\ui.c(269,34): warning C4013: 'malloc' undefined; assuming extern returning int
+  Generating Code...
+  RealEstateAgent.vcxproj -> D:\OOP\a23-913-Herlea-Stefan-Alexandru\RealEstateAgent\Debug\RealEstateAgent.exe

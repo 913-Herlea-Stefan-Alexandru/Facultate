@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Domain">
+      <UniqueIdentifier>{65d3504d-9b44-4985-89e7-5093fc84742d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Domain">
+      <UniqueIdentifier>{7581458f-ffeb-48c6-910a-942dfcab6eee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Repositories">
+      <UniqueIdentifier>{e6d86c46-90a8-4d2e-b9f6-50d00da612c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Repositories">
+      <UniqueIdentifier>{04dbc413-77cf-4cd2-865b-1d64f47a6d0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tests">
+      <UniqueIdentifier>{e9955b4c-0c25-455a-9034-b96a8e4d194b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tests">
+      <UniqueIdentifier>{090d837b-bea1-4e39-a660-adc161a5cfe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Validators">
+      <UniqueIdentifier>{ba5d3a82-87de-45f3-a202-430f34a3bd82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Validators">
+      <UniqueIdentifier>{3dfa0bde-2516-490e-b9d0-1af97bc4a32a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service">
+      <UniqueIdentifier>{4f718bff-1909-4d0b-b67b-c17064f6e29f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service">
+      <UniqueIdentifier>{7598fc2d-d993-4262-b3ea-a2c9b4d20a04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{68e28ef4-e38a-4972-8289-cdb8a6917ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{4af5c354-d354-4562-999b-e482c9303e36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="estate.c">
+      <Filter>Source Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="repo.c">
+      <Filter>Source Files\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="tests.c">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="estate_validator.c">
+      <Filter>Source Files\Validators</Filter>
+    </ClCompile>
+    <ClCompile Include="service.c">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="ui.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="integer_validator.c">
+      <Filter>Source Files\Validators</Filter>
+    </ClCompile>
+    <ClCompile Include="undo_repo.c">
+      <Filter>Source Files\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="redo_repo.c">
+      <Filter>Source Files\Repositories</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="estate.h">
+      <Filter>Header Files\Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="repo.h">
+      <Filter>Header Files\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="tests.h">
+      <Filter>Header Files\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="estate_validator.h">
+      <Filter>Header Files\Validators</Filter>
+    </ClInclude>
+    <ClInclude Include="service.h">
+      <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="ui.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="integer_validator.h">
+      <Filter>Header Files\Validators</Filter>
+    </ClInclude>
+    <ClInclude Include="undo_repo.h">
+      <Filter>Header Files\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="redo_repo.h">
+      <Filter>Header Files\Repositories</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

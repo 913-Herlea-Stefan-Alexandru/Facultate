@@ -1,0 +1,3 @@
+﻿  Service.cpp
+D:\OOP\PregTest\WrittenExam\PracticalExam\PracticalExam\IssueRepository.h(90): warning C4715: 'IssueRepository::get': not all control paths return a value
+  PracticalExam.vcxproj -> D:\OOP\PregTest\WrittenExam\PracticalExam\x64\Debug\PracticalExam.exe

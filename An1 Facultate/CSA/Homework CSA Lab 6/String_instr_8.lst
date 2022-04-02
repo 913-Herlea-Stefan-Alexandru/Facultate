@@ -1,0 +1,70 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      
+    14 00000000 785634124D3C2C1A76-         s dd 12345678h, 1A2C3C4Dh, 98FCDC76h
+    14 00000009 DCFC98             
+    15                                      l_s equ ($-s)/4
+    16 0000000C FF<rept>                    d times l_s db -1
+    17                                  
+    18                                  ; our code starts here
+    19                                  segment code use32 class=code
+    20                                      start:
+    21                                          ; A list of doublewords is given. Obtain the list made out of the low bytes of the high words of each doubleword from the given list with the property that these bytes are palindromes in base 10.
+    22                                          
+    23 00000000 BE[00000000]                    mov esi, s
+    24 00000005 B903000000                      mov ecx, l_s
+    25 0000000A BF[0C000000]                    mov edi, d
+    26 0000000F BB00000000                      mov ebx, 0
+    27 00000014 FC                              cld
+    28                                          start_loop:
+    29 00000015 AD                                  lodsd
+    30 00000016 250000FF00                          and eax, 0000_0000_1111_1111_0000_0000_0000_0000b
+    31 0000001B 51                                  push ecx
+    32 0000001C C1E810                              shr eax, 16
+    33 0000001F 3C0A                                cmp al, 10
+    34 00000021 7206                                jb unitary
+    35 00000023 3C64                                cmp al, 100
+    36 00000025 7205                                jb tenth
+    37 00000027 EB12                                jmp hundreed
+    38                                              unitary:
+    39 00000029 AA                                      stosb
+    40 0000002A EB25                                    jmp end_if
+    41                                              tenth:
+    42 0000002C 88C3                                    mov bl, al
+    43 0000002E B20A                                    mov dl, 10
+    44 00000030 F6F2                                    div dl
+    45 00000032 38E0                                    cmp al, ah
+    46 00000034 751B                                    jne end_if
+    47 00000036 88D8                                    mov al, bl
+    48 00000038 AA                                      stosb
+    49 00000039 EB16                                    jmp end_if
+    50                                              hundreed:
+    51 0000003B 88C3                                    mov bl, al
+    52 0000003D B20A                                    mov dl, 10
+    53 0000003F F6F2                                    div dl
+    54 00000041 88E1                                    mov cl, ah
+    55 00000043 6689D8                                  mov ax, bx
+    56 00000046 B264                                    mov dl, 100
+    57 00000048 F6F2                                    div dl
+    58 0000004A 38C8                                    cmp al, cl
+    59 0000004C 7503                                    jne end_if
+    60 0000004E 88D8                                    mov al, bl
+    61 00000050 AA                                      stosb
+    62                                              end_if:
+    63 00000051 59                                  pop ecx
+    64 00000052 E2C1                            loop start_loop
+    65                                              
+    66                                      
+    67                                          ; exit(0)
+    68 00000054 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    69 00000056 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

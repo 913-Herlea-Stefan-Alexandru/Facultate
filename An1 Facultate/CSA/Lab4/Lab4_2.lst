@@ -1,0 +1,131 @@
+     1                                  ;Given the words A and B, compute the word C as follows:
+     2                                  ;- the bits 0-2 of C are the same as the bits 10-12 of B -> isolate 2 bits of B and shift them
+     3                                  ;- the bits 3-6 of C have the value 1
+     4                                  ;- the bits 7-10 of C are the same as the bits 1-4 of A -> isolate the bits, shift them
+     5                                  ;- the bits 11-12 have the value 0
+     6                                  ;- the bits 13-15 of C are the invert of the bits 9-11 of B
+     7                                  
+     8                                  ; We will obtain the word C by successive "isolation" of bits sequences. The isolation
+     9                                  ; of the bits 10-12 of B is done by obtaining the unchanged values of these bits,  
+    10                                  ; and initialising all other bits to 0. The isolation operation can be performed
+    11                                  ; using the operator AND between the word B and the mask
+    12                                  ; 0001110000000000. Once isolated, the sequence of bits is put on the right  position by using a rotation operation. 
+    13                                  ; The final word is obtained by applying the operator OR between all intermediate results obtained by using isolations and rotations.
+    14                                  
+    15                                  ; Observation: bits are numbered from right to left
+    16                                  
+    17                                  ;Given the words A and B, compute the doubleword C as follows:
+    18                                  
+    19                                  ;the bits 0-4 of C are the same as the bits 11-15 of A
+    20                                  ;the bits 5-11 of C have the value 1
+    21                                  ;the bits 12-15 of C are the same as the bits 8-11 of B
+    22                                  ;the bits 16-31 of C are the same as the bits of A
+    23                                  
+    24                                  ;Given the words A and B, compute the doubleword C as follows:
+    25                                  
+    26                                  ;the bits 0-3 of C are the same as the bits 5-8 of B
+    27                                  ;the bits 4-8 of C are the same as the bits 0-4 of A
+    28                                  ;the bits 9-15 of C are the same as the bits 6-12 of A
+    29                                  ;the bits 16-31 of C are the same as the bits of B
+    30                                  
+    31                                  bits 32 ;assembling for the 32 bits architecture
+    32                                  ; the start label will be the entry point in the program
+    33                                  global  start 
+    34                                  
+    35                                  extern  exit ; we inform the assembler that the exit symbol is foreign, i.e. it exists even if we won't be defining it
+    36                                  import  exit msvcrt.dll; exit is a function that ends the process, it is defined in msvcrt.dll
+    37                                          ; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+    38                                  segment  data use32 class=data ; the data segment where the variables are declared 
+    39 00000000 5777                         a dw 0111_0111_0101_0111b
+    40 00000002 BE9B                         b dw 1001_1011_1011_1110b
+    41 00000004 0000                         c dw 0
+    42                                  segment  code use32 class=code ; code segment
+    43                                  start: 
+    44                                  
+    45 00000000 66BB0000                     mov  bx, 0 ; we compute the result in bx
+    46                                       
+    47                                       ;the bits 0-4 of C are the same as the bits 11-15 of A
+    48                                       
+    49 00000004 66A1[00000000]               mov ax, [a] ;we isolate the bits 
+    50 0000000A 662500F8                     and ax, 1111_1000_0000_0000b
+    51 0000000E B10B                         mov cl, 11
+    52 00000010 66D3E8                       shr ax, cl
+    53 00000013 6609C3                       or bx, ax
+    54                                       
+    55                                       ;the bits 5-11 of C have the value 1
+    56                                       
+    57 00000016 6681CBE00F                   or bx, 0000_1111_1110_0000b
+    58                                       
+    59                                       ;the bits 12-15 of C are the same as the bits 8-11 of B
+    60                                  
+    61 0000001B 66A1[02000000]               mov  ax, [b]
+    62 00000021 6625000F                     and  ax, 0000_1111_0000_0000b
+    63 00000025 B104                         mov  cl, 4
+    64 00000027 66D3E0                       shl  ax, cl
+    65 0000002A 6609C3                       or   bx, ax
+    66                                       
+    67                                       ;the bits 16-31 of C are the same as the bits of A
+    68                                       
+    69 0000002D B800000000                   mov eax, 0
+    70 00000032 66A1[00000000]               mov ax, [a]
+    71 00000038 C1E010                       shl eax, 16
+    72 0000003B 6609D8                       or ax, bx
+    73                                       
+    74                                       ;-------------------------------------------------------
+    75                                       
+    76 0000003E 66BB0000                     mov bx, 0
+    77                                       
+    78                                       ;the bits 0-3 of C are the same as the bits 5-8 of B
+    79                                       
+    80 00000042 66A1[02000000]               mov ax, [b]
+    81 00000048 6625E001                     and ax, 0000_0001_1110_0000b
+    82 0000004C B105                         mov cl, 5
+    83 0000004E 66D3E8                       shr ax, cl
+    84 00000051 6609C3                       or bx, ax
+    85                                       
+    86                                       ;the bits 4-8 of C are the same as the bits 0-4 of A
+    87                                       
+    88 00000054 66A1[00000000]               mov ax, [a]
+    89 0000005A 6683E01F                     and ax, 0000_0000_0001_1111b
+    90 0000005E B104                         mov cl, 4
+    91 00000060 66D3E0                       shl ax, cl
+    92 00000063 6609C3                       or bx, ax
+    93                                       
+    94                                       ;the bits 9-15 of C are the same as the bits 6-12 of A
+    95                                       
+    96 00000066 66A1[00000000]               mov ax, [a]
+    97 0000006C 6625C01F                     and ax, 0001_1111_1100_0000b
+    98 00000070 B103                         mov cl, 3
+    99 00000072 66D3E0                       shl ax, cl
+   100 00000075 6609C3                       or bx, ax
+   101                                       
+   102                                       ;the bits 16-31 of C are the same as the bits of B
+   103                                       
+   104 00000078 B800000000                   mov eax, 0
+   105 0000007D 66A1[02000000]               mov ax, [b]
+   106 00000083 C1E010                       shl eax, 16
+   107 00000086 6609D8                       or ax, bx
+   108                                  
+   109                                       ;---------------------------------------------------------
+   110                                       
+   111 00000089 6683CB78                     or   bx, 0000_0000_0111_1000b ; we force the value of bits 3-6 of the result to the value 1
+   112                                  
+   113 0000008D 66A1[00000000]               mov  ax, [a] ; we isolate bits 1-4 of A
+   114 00000093 6683E01E                     and  ax, 0000_0000_0001_1110b
+   115 00000097 B106                         mov  cl, 6
+   116 00000099 66D3C0                       rol  ax, cl ; we rotate 6 positions to the left
+   117 0000009C 6609C3                       or   bx, ax ; punem bitii in rezultat
+   118                                  
+   119 0000009F 6681E3FFE7                   and  bx, 1110011111111111b ; facem biti 11-12 din rezultat sa aiba valoarea 0
+   120                                  
+   121 000000A4 66A1[02000000]               mov  ax, [b]
+   122 000000AA 66F7D0                       not  ax ; we invert the value of b
+   123 000000AD 6625000E                     and  ax, 0000111000000000b ; we isolate the bits 9-11 of B
+   124 000000B1 B104                         mov  cl, 4
+   125 000000B3 66D3C0                       rol  ax, cl ; we rotate 4 positions to the left
+   126 000000B6 6609C3                       or   bx, ax ; punem biti in rezultat
+   127                                  
+   128 000000B9 66891D[04000000]             mov  [c], bx ; we move the result from the register to the result variable
+   129                                  
+   130 000000C0 6A00                         push dword 0 ;saves on stack the parameter of the function exit
+   131 000000C2 FF15[00000000]               call [exit] ;function exit is called in order to end the execution of

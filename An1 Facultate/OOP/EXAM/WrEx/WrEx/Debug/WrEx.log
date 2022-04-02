@@ -1,0 +1,8 @@
+﻿  main.cpp
+D:\OOP\EXAM\WrEx\WrEx\main.cpp(125,20): warning C4018: '<': signed/unsigned mismatch
+D:\OOP\EXAM\WrEx\WrEx\main.cpp(134): message : see reference to function template instantiation 'Y fct<int>(std::vector<int,std::allocator<int>>)' being compiled
+          with
+          [
+              Y=int
+          ]
+  WrEx.vcxproj -> D:\OOP\EXAM\WrEx\Debug\WrEx.exe

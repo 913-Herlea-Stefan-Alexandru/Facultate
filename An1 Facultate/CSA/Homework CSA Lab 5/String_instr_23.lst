@@ -1,0 +1,44 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit             
+     6                                  import exit msvcrt.dll   
+     7                                                           
+     8                                  
+     9                                  segment data use32 class=data
+    10                                      ; ...
+    11                                      
+    12 00000000 0104020408020101            s db 1, 4, 2, 4, 8, 2, 1, 1
+    13                                      l_s equ $-s
+    14 00000008 FF<rept>                    d times l_s db -1
+    15                                  
+    16                                  segment code use32 class=code
+    17                                      start:
+    18                                          ; A byte string S is given. Obtain in the string D the set of the elements of S.
+    19                                          
+    20 00000000 BE[00000000]                    mov esi, s
+    21 00000005 BF[08000000]                    mov edi, d
+    22 0000000A B908000000                      mov ecx, l_s
+    23 0000000F FC                              cld
+    24                                          start_loop:
+    25 00000010 AC                                  lodsb
+    26 00000011 51                                  push ecx
+    27 00000012 57                                  push edi
+    28 00000013 BF[08000000]                        mov edi, d
+    29 00000018 B908000000                          mov ecx, l_s
+    30                                              second_loop:
+    31 0000001D AE                                      scasb
+    32 0000001E 7406                                    je not_good
+    33 00000020 E2FB                                loop second_loop
+    34 00000022 5F                                  pop edi
+    35 00000023 AA                                  stosb
+    36 00000024 EB01                                jmp good
+    37                                              not_good:
+    38 00000026 5F                                      pop edi
+    39                                              good:
+    40 00000027 59                                      pop ecx
+    41 00000028 E2E6                            loop start_loop
+    42                                  
+    43 0000002A 6A00                            push    dword 0   
+    44 0000002C FF15[00000000]                  call    [exit]     

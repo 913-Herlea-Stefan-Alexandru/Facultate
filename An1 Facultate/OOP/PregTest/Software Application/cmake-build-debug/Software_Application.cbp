@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Software_Application"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\Setup\;CMake Files\..\..\..\..\Setup\QT\;CMake Files\..\..\..\..\Setup\QT\5.15.2\;CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\;CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\;CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\;CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5\;CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Core\;CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Widgets\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Software_Application">
+				<Option output="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Software_Application.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add directory="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Software_Application_autogen/include"/>
+					<Add directory="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/."/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtCore"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtGui"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtANGLE"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtWidgets"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 Software_Application"/>
+					<CompileFile command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Software_Application/fast">
+				<Option output="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Software_Application.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add directory="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Software_Application_autogen/include"/>
+					<Add directory="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/."/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtCore"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtGui"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtANGLE"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/5.15.2/mingw81_64/include/QtWidgets"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 Software_Application/fast"/>
+					<CompileFile command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Software_Application_autogen">
+				<Option working_dir="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 Software_Application_autogen"/>
+					<CompileFile command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/User/Desktop/Setup/QT/Tools/mingw810_64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Entities/Issue.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Entities/Issue.h">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Entities/User.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Entities/User.h">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Observer.h">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/QT/Table_Model.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/QT/Table_Model.h">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/QT/User_Window.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/QT/User_Window.h">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Repositories/Repository_Issue.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Repositories/Repository_Issue.h">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Repositories/Repository_User.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/Repositories/Repository_User.h">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/Software_Application_autogen/mocs_compilation.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/main.cpp">
+			<Option target="Software_Application"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/../../../../Setup/QT/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Setup\QT\5.15.2\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,61 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf, scanf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                  import printf msvcrt.dll    ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  import scanf msvcrt.dll 
+    11                                  
+    12                                  ; our data is declared here (the variables needed by our program)
+    13                                  segment data use32 class=data
+    14                                      ; ...
+    15                                      
+    16 00000000 00                          a db 0
+    17 00000001 4E756D626572206120-         message db "Number a = ", 0
+    17 0000000A 3D2000             
+    18 0000000D 257800                      format db "%x", 0
+    19 00000010 556E7369676E656420-         result1 db "Unsigned decimal = %i    ", 0
+    19 00000019 646563696D616C203D-
+    19 00000022 2025692020202000   
+    20 0000002A 5369676E6564206465-         result2 db "Signed decimal = %d", 0
+    20 00000033 63696D616C203D2025-
+    20 0000003C 6400               
+    21                                  
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25                                          ; Read a hexadecimal number with 2 digits from the keyboard. Display the number in base 10, in both interpretations: as an unsigned number and as an signed number (on 8 bits).
+    26                                          
+    27 00000000 68[01000000]                    push dword message
+    28 00000005 FF15[00000000]                  call [printf]
+    29 0000000B 83C404                          add esp, 4*1
+    30                                          
+    31 0000000E 68[00000000]                    push dword a
+    32 00000013 68[0D000000]                    push dword format
+    33 00000018 FF15[00000000]                  call [scanf]
+    34 0000001E 83C408                          add esp, 4*2
+    35                                          
+    36 00000021 B800000000                      mov eax, 0
+    37 00000026 A0[00000000]                    mov al, [a]
+    38                                          
+    39 0000002B 50                              push eax
+    40 0000002C 68[10000000]                    push dword result1
+    41 00000031 FF15[00000000]                  call [printf]
+    42 00000037 83C408                          add esp, 4*2
+    43                                  
+    44 0000003A B800000000                      mov eax, 0
+    45 0000003F A0[00000000]                    mov al, [a]
+    46 00000044 6698                            cbw
+    47 00000046 98                              cwde
+    48                                          
+    49 00000047 50                              push eax
+    50 00000048 68[2A000000]                    push dword result2
+    51 0000004D FF15[00000000]                  call [printf]
+    52 00000053 83C408                          add esp, 4*2
+    53                                      
+    54                                          ; exit(0)
+    55 00000056 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    56 00000058 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

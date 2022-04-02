@@ -1,0 +1,8 @@
+The set is: A = {a1}
+
+The transitive relations on the given set are: 
+
+R1 = Empty set
+R2 = {(a1, a1)}
+
+The number of transitive functions the given set has is: 2

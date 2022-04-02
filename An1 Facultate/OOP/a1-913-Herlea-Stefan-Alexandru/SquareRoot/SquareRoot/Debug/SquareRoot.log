@@ -1,0 +1,6 @@
+﻿  SquareRoot.c
+D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\SquareRoot\SquareRoot.c(38,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\SquareRoot\SquareRoot.c(129,7): warning C4013: 'free' undefined; assuming extern returning int
+D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\SquareRoot\SquareRoot.c(136,20): warning C4013: 'malloc' undefined; assuming extern returning int
+D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\SquareRoot\SquareRoot.c(164,16): warning C4013: 'abs' undefined; assuming extern returning int
+  SquareRoot.vcxproj -> D:\OOP\a1-913-Herlea-Stefan-Alexandru\SquareRoot\Debug\SquareRoot.exe

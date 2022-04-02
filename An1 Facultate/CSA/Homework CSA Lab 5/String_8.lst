@@ -1,0 +1,48 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14                                      
+    15 00000000 614162423225784D            s db 'a', 'A', 'b', 'B', '2', '%', 'x', 'M'
+    16 00000008 <res 00000008>              d resq 1
+    17 00000010 <res 00000001>              l resb 1
+    18                                  
+    19                                  ; our code starts here
+    20                                  segment code use32 class=code
+    21                                      start:
+    22                                          ; ...
+    23                                          
+    24 00000000 B8[08000000]                    mov eax, d
+    25 00000005 BB[00000000]                    mov ebx, s
+    26 0000000A 29D8                            sub eax, ebx
+    27 0000000C A2[10000000]                    mov [l], al
+    28 00000011 89C1                            mov ecx, eax
+    29 00000013 BB[08000000]                    mov ebx, d
+    30                                          start_loop:
+    31 00000018 B800000000                          mov eax, 0
+    32 0000001D A0[10000000]                        mov al, [l]
+    33 00000022 29C8                                sub eax, ecx
+    34 00000024 05[00000000]                        add eax, s
+    35 00000029 80385A                              cmp byte[eax], byte'Z'
+    36 0000002C 770A                                ja end_if
+    37 0000002E 803841                                  cmp byte[eax], byte'A'
+    38 00000031 7205                                    jb end_if
+    39 00000033 8A00                                        mov al, byte[eax]
+    40 00000035 8803                                        mov byte[ebx], al
+    41 00000037 43                                          inc ebx
+    42                                              end_if:
+    43 00000038 E2DE                            loop start_loop
+    44                                              
+    45                                      
+    46                                          ; exit(0)
+    47 0000003A 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    48 0000003C FF15[00000000]                  call    [exit]       ; call exit to terminate the program

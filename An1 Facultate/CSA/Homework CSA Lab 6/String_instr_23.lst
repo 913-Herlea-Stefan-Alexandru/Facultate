@@ -1,0 +1,67 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14                                      
+    15 00000000 0204020502020404            s db 2, 4, 2, 5, 2, 2, 4, 4
+    16                                      l_s equ $-s
+    17 00000008 FFFF<rept>                  res times l_s dw -1
+    18 00000018 00                          l_d db 0
+    19                                  
+    20                                  ; our code starts here
+    21                                  segment code use32 class=code
+    22                                      start:
+    23                                          ; Being given a string of bytes, build a string of words which contains in the low bytes of the words the set of distinct characters from the given string and in the high byte of a word it contains the numbe
+    24                                          
+    25 00000000 BE[00000000]                    mov esi, s
+    26 00000005 B908000000                      mov ecx, l_s
+    27 0000000A BF[08000000]                    mov edi, res
+    28 0000000F FC                              cld
+    29                                          start_loop:
+    30 00000010 AC                                  lodsb
+    31 00000011 51                                  push ecx
+    32 00000012 57                                  push edi
+    33 00000013 8B0D[18000000]                      mov ecx, [l_d]
+    34 00000019 BF[08000000]                        mov edi, res
+    35 0000001E E306                                jecxz add_element
+    36                                              check_loop:
+    37 00000020 AE                                      scasb
+    38 00000021 7427                                    je no_add
+    39 00000023 47                                      inc edi
+    40 00000024 E2FA                                loop check_loop
+    41                                              add_element:
+    42 00000026 FE05[18000000]                          inc byte[l_d]
+    43 0000002C B300                                    mov bl, 0
+    44 0000002E B908000000                              mov ecx, l_s
+    45 00000033 56                                      push esi
+    46 00000034 BE[00000000]                            mov esi, s
+    47 00000039 B400                                    mov ah, 0
+    48                                                  count_loop:
+    49 0000003B 3A06                                        cmp al, [esi]
+    50 0000003D 7502                                        jne not_good
+    51 0000003F FEC4                                            inc ah
+    52                                                      not_good:
+    53 00000041 46                                          inc esi
+    54 00000042 E2F7                                    loop count_loop
+    55 00000044 5E                                      pop esi
+    56 00000045 66AB                                    stosw
+    57 00000047 5A                                      pop edx
+    58 00000048 EB01                                    jmp end_loop
+    59                                              no_add:
+    60 0000004A 5F                                  pop edi
+    61                                              end_loop:
+    62 0000004B 59                                  pop ecx
+    63 0000004C E2C2                            loop start_loop
+    64                                  
+    65                                          ; exit(0)
+    66 0000004E 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    67 00000050 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

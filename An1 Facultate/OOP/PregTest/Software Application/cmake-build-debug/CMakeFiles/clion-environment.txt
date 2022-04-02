@@ -1,0 +1,4 @@
+ToolSet: w64 6.0 (local)@C:\Users\User\Desktop\Setup\QT\Tools\mingw810_64
+Options: 
+
+Options:

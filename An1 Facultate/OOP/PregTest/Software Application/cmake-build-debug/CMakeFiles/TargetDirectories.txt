@@ -1,0 +1,4 @@
+C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/CMakeFiles/Software_Application.dir
+C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/Facultate/Semestrul 2/Object Oriented Programming/Software Application/cmake-build-debug/CMakeFiles/Software_Application_autogen.dir

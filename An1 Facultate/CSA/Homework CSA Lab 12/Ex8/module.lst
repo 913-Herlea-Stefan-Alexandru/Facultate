@@ -1,0 +1,28 @@
+     1                                  bits 32
+     2                                  segment code use32 public code
+     3                                  global base8conv
+     4                                  
+     5                                  base8conv:
+     6 00000000 8B442404                    mov eax, [esp + 4]
+     7 00000004 BA00000000                  mov edx, 0
+     8 00000009 BB00000000                  mov ebx, 0
+     9 0000000E 51                          push ecx
+    10                                      do:
+    11 0000000F B908000000                      mov ecx, 8
+    12 00000014 F7F1                            div ecx
+    13 00000016 50                              push eax
+    14 00000017 89D8                            mov eax, ebx
+    15 00000019 B90A000000                      mov ecx, 10
+    16 0000001E 52                              push edx
+    17 0000001F F7E1                            mul ecx
+    18 00000021 5A                              pop edx
+    19 00000022 89C3                            mov ebx, eax
+    20 00000024 01D3                            add ebx, edx
+    21 00000026 58                              pop eax
+    22 00000027 BA00000000                      mov edx, 0
+    23 0000002C 83F800                          cmp eax, dword 0
+    24 0000002F 75DE                            jne do
+    25 00000031 59                          pop ecx
+    26 00000032 89D8                        mov eax, ebx
+    27 00000034 C20400                      ret 4
+    28                                      

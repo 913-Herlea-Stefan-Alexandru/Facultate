@@ -1,0 +1,160 @@
+from math import gcd
+
+#
+# Non-UI functions
+#
+
+# Rational number functions
+# print or input are not allowed here
+# don't call functions that print or input
+
+'''
+What's the deal implementing this?
+	-each rational number is represented by one variable (list, dict)
+	-i want to be able to change the representation of rational numbers later
+	-acces rational numbers using functions (getters setters)
+
+list representation:
+	1 / 3 => [1, 3]
+touple representation:
+	1 / 3 => (1, 3) -> no changes
+dict representation:
+	1 / 3 => {'num': 1, 'denom': 3} 
+'''
+
+def create_rational(num, denom=1):
+	# TODO How to represent a rational number?
+	#Create a rational number with the given num and denom
+	
+	if denom == 0:
+		return None
+
+	#Simplifying
+	d = gcd(num, denom)
+	num = num // d
+	denom = denom // d
+	return {'num': num, 'denom': denom}
+	#return [num, denom]
+
+def get_num(q):
+	#Return umber q's num
+	return q['num']
+	#return q[0]
+
+def get_denom(q):
+	#Return umber q's denom
+	return q['denom']
+	#return q[1]
+
+#Make the rational number responsible for it's own representation
+def to_str(q):
+	#return string repr of q
+	return str(get_num(q)) + '/' + str(get_denom(q))
+
+#a/b + c/d = (a*d + c*b) / (b*d)
+def add(q1, q2):
+	#Add 2 rational numbers
+	new_num = get_num(q1)*get_denom(q2) + get_num(q2)*get_denom(q1)
+	new_denon = get_denom(q1)*get_denom(q2)
+	return create_rational(new_num, new_denom)
+
+#Calculator functions are here
+
+'''
+What is the state of the calculator?
+	-current value(default 0/1)
+	-history of calculator values
+'''
+
+def create_calculator():
+	#Create calculator instance
+
+	return {'value': create_rational(0), 'history': []}
+
+def add_calc_number(calc, q):
+	#Adds q to the calculator
+
+	new_value = add(get_calc_value(calc), q)
+	set_calc_value(calc, new_value)
+
+def set_calc_value(calculator, q):
+	calculator['value'] = q
+
+def get_calc_value(calculator):
+	#Return current calc value
+	
+	return calculator['value']
+
+
+
+
+#
+# UI functions
+#
+
+
+def read_rational():
+	#Read rational number from console
+
+	num = input('Numerator: ')
+	denom = input('Denominator: ')
+	#TODO Some error handling
+	return create_rational(int(num), int(denom))
+
+def add_calculator_ui(calc)
+	value = read_rational()
+	add_calc_number(calc, value)
+
+
+def undo_calculator_ui()
+	#TODO How do I know I have an operation to undo?
+	#If no operation is availble, we cnnot undo -> tell user
+	#History of calculator values
+	print("undo")
+	pass
+
+
+def print_menu():
+	print('\n')
+	print('\t+ add a rational numbre to the calculator')
+	print('\tu undo the last operation')
+	print('\tx exit')
+
+
+def start():
+	#in a loop
+	#print a menu
+	#get the user's choice
+	#do what user wants
+	#print result
+
+	calc = create_calculator()
+	
+	done = False
+	while not done:
+		print_menu()
+		print('total'+ to_str(get_calc_value(calc)))
+		option = input("Enter operation: ")
+	
+		#V1. handling user input
+		if operation == '+':
+			add_calculator_ui(calc)
+		elif operation == 'u':
+			undo_calculator_ui()
+		elif operation == 'x':
+			print("Bye bye!")
+			done = True
+		else:
+			print("Bad command!")
+
+
+start()
+
+
+
+
+
+
+
+
+
